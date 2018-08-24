@@ -27,9 +27,15 @@ footer {
 }
 
 .footer {
-	position: absolute;
+	/* position: absolute; */
+	/* margin-top:100px; */
 	bottom: 0px; /*To footer on absolute bottom*/
 	height: 60px;
+}
+
+.dataTableImg{
+	width:100px;
+	height: 100px;
 }
 
 @media ( min-width : 992px) {

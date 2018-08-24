@@ -26,6 +26,7 @@
 
 <script>
 	window.menu = '${title}';
+	window.contextRoot = '${contextRoot}';
 </script>
 
 <!-- Bootstrap core CSS -->
@@ -33,6 +34,14 @@
 
 <!--Bootstrap Readable theme -->
 <link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
+
+<!--Bootstrap DataTables -->
+<link href="${css}/dataTables.bootstrap4.css" rel="stylesheet">
+
+
+<!-- FontAwesome 5 -->
+<link href="${css}/fontawesomeall.css" rel="stylesheet">
+
 
 <!-- Custom styles for this template -->
 <link href="${css}/myapp.css" rel="stylesheet">
@@ -63,19 +72,40 @@
 				<%@include file="contact.jsp"%>
 			</c:if>
 
-		</div>
+			<!-- Loading only when user click All Products-->
+			<c:if
+				test="${userClickAllProducts==true or userClickCategoryProducts==true}">
+				<%@include file="listProducts.jsp"%>
+			</c:if>
 
+			<!-- Loading only when user click Show Product-->
+			<c:if
+				test="${userClickShowProduct==true}">
+				<%@include file="singleProduct.jsp"%>
+			</c:if>
+
+		</div>
 		<!-- Footer -->
 
 		<%@include file="./shared/footer.jsp"%>
-
-		<!-- Bootstrap core JavaScript -->
-		<script src="${js}/jquery.js"></script>
-		
-		<!-- Self coded javascript to link myapp.js -->
-		<script src="${js}/myapp.js"></script>
-		<script src="${js}/bootstrap.min.js"></script>
 	</div>
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="${js}/jquery.js"></script>
+
+	<!-- DataTable Plugin -->
+	<script src="${js}/jquery.dataTables.js"></script>
+
+	<!-- DataTable Bootstarp script -->
+	<script src="${js}/dataTables.bootstrap4.js"></script>
+
+	<!-- FontAwesome 5 script -->
+	<script src="${js}/fontawesomeall.js"></script>
+
+	<!-- Self coded javascript to link myapp.js -->
+	<script src="${js}/myapp.js"></script>
+	<script src="${js}/bootstrap.min.js"></script>
+
 </body>
 
 </html>

@@ -10,13 +10,14 @@
    http://www.springframework.org/schema/mvc/spring-mvc.xsd
    
    ">
-   
-   <context:component-scan base-package="com.shopaholic.controller"></context:component-scan>
+   <!-- Adding base package for scan -->
+
+   <context:component-scan base-package="com.shopaholic"></context:component-scan>
    
    <bean id="viewResolver"
    	class="org.springframework.web.servlet.view.InternalResourceViewResolver">
    	
-   	<property name="prefix" value="WEB-INF/views/"/>
+   	<property name="prefix" value="/WEB-INF/views/"/>
    	<property name="suffix" value=".jsp"/>
    	
    	</bean>
