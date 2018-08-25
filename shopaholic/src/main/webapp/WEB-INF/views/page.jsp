@@ -32,9 +32,6 @@
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
-<!--Bootstrap Readable theme -->
-<link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
-
 <!--Bootstrap DataTables -->
 <link href="${css}/dataTables.bootstrap4.css" rel="stylesheet">
 
@@ -82,6 +79,12 @@
 			<c:if
 				test="${userClickShowProduct==true}">
 				<%@include file="singleProduct.jsp"%>
+			</c:if>
+			
+			<!-- Loading only when user click Manage Products-->
+			<c:if
+				test="${userClickManageProducts==true}">
+				<%@include file="managedProducts.jsp"%>
 			</c:if>
 
 		</div>

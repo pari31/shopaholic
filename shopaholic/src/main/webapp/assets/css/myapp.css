@@ -38,6 +38,11 @@ footer {
 	height: 100px;
 }
 
+.help-block{
+	
+	color: #ff0000;
+}
+
 @media ( min-width : 992px) {
 	body {
 		padding-top: 56px;

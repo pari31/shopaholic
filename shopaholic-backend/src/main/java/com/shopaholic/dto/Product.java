@@ -37,6 +37,7 @@ public class Product {
 	private int views;
 	
 	//Creating constructor
+	//Below code will be used to store the product images
 	public Product()
 	{
 		this.code = "PRD"+UUID.randomUUID().toString().substring(26).toUpperCase();
