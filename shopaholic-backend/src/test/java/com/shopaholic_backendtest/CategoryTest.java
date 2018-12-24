@@ -1,4 +1,4 @@
-package com.shopaholic_backend;
+package com.shopaholic_backendtest;
 
 import static org.junit.Assert.assertEquals;
 
@@ -12,7 +12,7 @@ import com.shopaholic.dto.Category;
 
 public class CategoryTest {
 
-private static AnnotationConfigApplicationContext context;
+	private static AnnotationConfigApplicationContext context;
 	
 	
 	private static CategoryDAO categoryDAO;
@@ -24,7 +24,7 @@ private static AnnotationConfigApplicationContext context;
 	@BeforeClass
 	public static void init() {
 		context = new AnnotationConfigApplicationContext();
-		context.scan("com.shopaholic_backend");
+		context.scan("com.shopaholic");
 		context.refresh();
 		categoryDAO = (CategoryDAO)context.getBean("categoryDAO");
 	}
@@ -35,10 +35,8 @@ private static AnnotationConfigApplicationContext context;
 		
 		category = new Category();
 		
-		category.setName("Laptop");
-		category.setDescription("i3,i5,i7,i9");
-		category.setActive(true);
-		
+		category.setName("Television");
+		category.setDescription("Smart LED/OLED");
 	
 		assertEquals("Successfully added a category inside the table!",true,categoryDAO.add(category));
 		
@@ -97,8 +95,8 @@ private static AnnotationConfigApplicationContext context;
 		// add operation
 		category = new Category();
 		
-		category.setName("Laptop");
-		category.setDescription("This is some description for laptop!");
+		category.setName("Television");
+		category.setDescription("Smart,LED,OLED");
 	
 		
 		assertEquals("Successfully added a category inside the table!",true,categoryDAO.add(category));
@@ -131,7 +129,4 @@ private static AnnotationConfigApplicationContext context;
 	}
 	
 	
-
-	}
-
-
+}

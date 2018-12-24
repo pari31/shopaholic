@@ -44,7 +44,7 @@ public class HibernateConfig {
 		lsfb.addProperties(getHibernateProp());
 		return lsfb.buildSessionFactory();
 	}
-
+/*Puttting Hibernate properties in the Properties object*/
 	private Properties getHibernateProp() {
 		Properties prop=new Properties();
 		//Most Important Properties
@@ -56,7 +56,7 @@ public class HibernateConfig {
 		return prop;
 	}
 	
-	//Step 3 Transaction Manager Bean which is to be called by annotation @Transactional
+																																																																		
 	@Bean
 	public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory) {
 		//return new HibernateTransactionManager(sessionFactory);

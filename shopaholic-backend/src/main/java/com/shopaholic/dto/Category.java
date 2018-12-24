@@ -1,21 +1,31 @@
 package com.shopaholic.dto;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Category {
+public class Category implements Serializable {
 
-	/*Private Fields*/
+	private static final long serialVersionUID = 1L;
+
+	/*Private fields*/
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	private String name;
+	
 	private String description;
-	private String imageURL;
+	
+	@Column(name = "is_active")
 	private boolean active = true;
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -34,12 +44,7 @@ public class Category {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getImageURL() {
-		return imageURL;
-	}
-	public void setImageURL(String imageURL) {
-		this.imageURL = imageURL;
-	}
+	
 	public boolean isActive() {
 		return active;
 	}
@@ -47,5 +52,12 @@ public class Category {
 		this.active = active;
 	}
 	
+	
+	
+	@Override
+	public String toString() {
+		return "Category [id=" + id + ", name=" + name + ", description=" + description + ", active=" + active + "]";
+	}
+
 	
 }
