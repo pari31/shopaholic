@@ -18,6 +18,13 @@ public class JasondataController {
 	@Autowired
 	private ProductDAO productDAO;
 	
+	@RequestMapping("/admin/allproducts")
+	@ResponseBody
+	public List<Product>getAllProductsList()
+	{
+		return productDAO.list();
+	}
+	
 	@RequestMapping("/all/products")
 	/*Using @ResponseBody to send the data in the form of jason*/
 	@ResponseBody
@@ -31,6 +38,22 @@ public class JasondataController {
 	public List<Product> getProductsByCategory(@PathVariable int id)
 	{
 				return productDAO.listActiveProductsByCategory(id);
+	}
+	
+	@RequestMapping("/mv/products")
+	@ResponseBody
+	public List<Product>getMostViewedProducts()
+	{
+		return productDAO.getProductsByParam("views",5);
+	}
+	
+	@RequestMapping("/mp/products")
+	@ResponseBody
+	public List<Product>getMostPurchasedProducts()
+	{
+		return productDAO.getProductsByParam("purchases", 5);				
+
+		
 	}
 
 }

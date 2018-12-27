@@ -134,7 +134,7 @@
 						</div>
 
 						<div class="form-group">
-							<label class="control-label col-md-4" for="cayegory">Select
+							<label class="control-label col-md-4" for="category">Select
 								Category:</label>
 
 							<div class="col-md-8">

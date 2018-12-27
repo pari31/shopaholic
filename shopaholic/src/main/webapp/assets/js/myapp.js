@@ -67,7 +67,7 @@ $(function() {
 					mRender: function(data,type,row)
 					{
 						
-						return '<img src="'+window.contextRoot+'/resources/images/'+data+'.jpg" class ="dataTableImg"/>'
+						return '<img src="'+window.contextRoot+'/resources/images/'+data+'.jpg" class="dataTableImg"/>';
 					}
 				},
 				
@@ -77,9 +77,7 @@ $(function() {
 				{
 					data : 'brand'
 				},
-				{
-					data : 'description'
-				},
+				
 				{
 					data : 'unitPrice',
 					mRender : function(data,type,row)

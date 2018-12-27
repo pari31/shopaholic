@@ -1,21 +1,29 @@
 package com.shopaholic.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 //import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.shopaholic.dao.CategoryDAO;
 import com.shopaholic.dao.ProductDAO;
 import com.shopaholic.dto.Category;
 import com.shopaholic.dto.Product;
+import com.shopaholic.exception.ProductNotFoundException;
 
 @Controller
 public class PageController {
 
-	//private static final Logger logger = LoggerFactory.getLogger(PageController.class);
+	
 	@Autowired
 	private CategoryDAO categoryDAO;
 
@@ -26,8 +34,6 @@ public class PageController {
 	public ModelAndView index() {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("title", "Home");
-		//logger.info("Inside PageController index method - INFO");
-		//logger.debug("Inside PageController index method -DEBUG");
 		mv.addObject("categories", categoryDAO.list());
 		mv.addObject("userClickHome", true);
 		return mv;
@@ -76,7 +82,7 @@ public class PageController {
 
 		// passing the single category object
 		mv.addObject("category", category);
-
+mv.addObject("productList", productDAO.listActiveProductsByCategory(id));
 		mv.addObject("userClickCategoryProducts", true);
 		return mv;
 	}
@@ -84,12 +90,16 @@ public class PageController {
 	/* Viewing a single Product */
 
 	@RequestMapping(value = "/show/{id}/product")
-	public ModelAndView showSingleProduct(@PathVariable int id) {
+	public ModelAndView showSingleProduct(@PathVariable int id) throws ProductNotFoundException {
 		ModelAndView mv = new ModelAndView("page");
 
 		Product product = productDAO.get(id);
-		/* Update the View Count */
+		
+		if(product == null) throw new ProductNotFoundException();
+		
+		// Update the View Count 
 		product.setViews(product.getViews() + 1);
+		
 		productDAO.update(product);
 
 		mv.addObject("title", product.getName());
@@ -98,29 +108,46 @@ public class PageController {
 		return mv;
 	}
 
+	@RequestMapping(value="/login")
+	public ModelAndView login(@RequestParam(name="error", required = false)	String error,
+			@RequestParam(name="logout", required = false) String logout) {
+		ModelAndView mv= new ModelAndView("login");
+		mv.addObject("title", "Login");
+		if(error!=null) {
+			mv.addObject("message", "Username and Password is invalid!");
+		}
+		if(logout!=null) {
+			mv.addObject("logout", "You have logged out successfully!");
+		}
+		return mv;
+	}
+	
+	@RequestMapping(value="/logout")
+	public String logout(HttpServletRequest request, HttpServletResponse response) {
+		// Invalidates HTTP Session, then unbinds any objects bound to it.
+	    // Removes the authentication from securitycontext 		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    if (auth != null){    
+	        new SecurityContextLogoutHandler().logout(request, response, auth);
+	    }
+		
+		return "redirect:/login?logout";
+	}	
 	
 	
+	@RequestMapping(value="/access-denied")
+	public ModelAndView accessDenied() {
+		ModelAndView mv = new ModelAndView("error");		
+		mv.addObject("errorTitle", "Aha! Caught You.");		
+		mv.addObject("errorDescription", "You are not authorized to view this page!");		
+		mv.addObject("title", "403 Access Denied");		
+		return mv;
+	}	
+		
 	
-	// RequestMapping(value="/test")
-	// public ModelAndView test(@RequestParam(value="greeting",required=false)String
-	// greeting){
-	// if(greeting==null)
-	// {
-	// greeting="Welcome";
-	// }
-	// ModelAndView mv = new ModelAndView("page");
-	// mv.addObject("greeting", greeting);
-	// return mv;
-	// }
-
-	// @RequestMapping(value="/test/{greeting}")
-	// public ModelAndView test(@PathVariable("greeting")String greeting){
-	// if(greeting==null)
-	// {
-	// //greeting="Welcome";
-	// }
-	// ModelAndView mv = new ModelAndView("page");
-	// mv.addObject("greeting", greeting);
-	// return mv;
-	// }
+	
 }
+
+	
+	
+	

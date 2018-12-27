@@ -1,4 +1,5 @@
-	<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -18,7 +19,7 @@
 
 <meta charset="utf-8">
 <meta name="viewport"
-content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -53,6 +54,7 @@ content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<!-- Page Content -->
 		<div class="content">
+
 			<!-- Loading the home content -->
 			<c:if test="${userClickHome==true}">
 				<%@include file="home.jsp"%>
@@ -76,42 +78,49 @@ content="width=device-width, initial-scale=1, shrink-to-fit=no">
 			</c:if>
 
 			<!-- Loading only when user click Show Product-->
-			<c:if
-				test="${userClickShowProduct==true}">
+			<c:if test="${userClickShowProduct==true}">
 				<%@include file="singleProduct.jsp"%>
 			</c:if>
-			
+
 			<!-- Loading only when user click Manage Products-->
-			<c:if
-				test="${userClickManageProducts==true}">
+			<c:if test="${userClickManageProducts==true}">
 				<%@include file="managedProducts.jsp"%>
+			</c:if>
+
+			<!-- Loading only when user clicks Manage Products -->
+			<c:if test="${userClickShowCart == true}">
+				<%@include file="cart.jsp"%>
 			</c:if>
 
 		</div>
 		<!-- Footer -->
 
 		<%@include file="./shared/footer.jsp"%>
-	</div>
+	
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="${js}/jquery.js"></script>
-
+	<script src="${js}/popper.min.js"></script>
 	<!-- DataTable Plugin -->
 	<script src="${js}/jquery.dataTables.js"></script>
 
 	<!-- DataTable Bootstarp script -->
 	<script src="${js}/dataTables.bootstrap4.js"></script>
 
-<!-- Bootbox -->
+	<!-- Bootbox -->
 	<script src="${js}/bootbox.min.js"></script>
-	
+
 	<!-- FontAwesome 5 script -->
 	<script src="${js}/fontawesomeall.js"></script>
 
+	<!-- DataTable Bootstrap Script -->
+	<script src="${js}/bootstrap.min.js"></script>
+	<script src="${js}/jquery.validate.js"></script>
+
 	<!-- Self coded javascript to link myapp.js -->
 	<script src="${js}/myapp.js"></script>
-	<script src="${js}/bootstrap.min.js"></script>
+
 
 </body>
-
+</div>
 </html>

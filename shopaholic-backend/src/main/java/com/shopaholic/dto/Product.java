@@ -31,7 +31,7 @@ public class Product implements Serializable {
 	private String name;
 	@NotBlank(message = "Please enter the brand name!")
 	private String brand;
-	@JsonIgnore
+	@JsonIgnore 
 	@NotBlank(message = "Please enter the description!")
 	private String description;
 	@Column(name = "unit_price")
