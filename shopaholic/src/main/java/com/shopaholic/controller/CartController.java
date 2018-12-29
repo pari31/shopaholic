@@ -82,7 +82,7 @@ return mv;
 		return "redirect/cart/show?"+response;
 	}
 	
-	@RequestMapping("/{cartLoineId/remove}")
+	@RequestMapping("/{cartLineId/remove}")
 	public String removeCartLine(@PathVariable int cartLineId)
 	{
 		String response = cartService.removeCartLine(cartLineId);

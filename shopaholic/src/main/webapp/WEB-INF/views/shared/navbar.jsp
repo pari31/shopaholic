@@ -1,4 +1,4 @@
-
+<%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <script>
 	window.userRole = '${userModel.role}';
 </script>
@@ -56,6 +56,9 @@
 
 
 <!-- Navigation -->
+
+
+<!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 	<div class="container">
 		<a class="navbar-brand" href="${contextRoot}/home">Shopaholic</a>
@@ -73,33 +76,43 @@
 					href="${contextRoot}/about">About</a></li>
 				<li class="nav-item" id="contact"><a class="nav-link"
 					href="${contextRoot}/contact">Contact</a></li>
-				<li class="nav-item" id="listProducts"><a class="nav-link"
+					<li class="nav-item" id="listProducts"><a class="nav-link"
 					href="${contextRoot}/show/all/products">View Products</a></li>
+					<security:authorize access="isAuthenticated()">
+				
+					<security:authorize access="hasAuthority('ADMIN')">
 				<li class="nav-item" id="manageProduct"><a class="nav-link"
-					href="${contextRoot}/manage/products">Manage Product</a></li>
+					href="${contextRoot}/manage/product">Manage Product</a></li>
+					</security:authorize>
+					</security:authorize>
+					
+					<security:authorize access="isAnonymous()">
 				<li class="nav-item" id="signup"><a class="nav-link"
 					href="${contextRoot}/membership">Sign Up</a></li>
 				<li class="nav-item" id="login"><a class="nav-link"
 					href="${contextRoot}/login">Login</a></li>
+					</security:authorize>
 					
+				<security:authorize access="isAuthenticated()">	
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false">  ${userModel.fullName} <span class="caret"></span></a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<security:authorize access="hasAuthority('USER')">
 						<a class="dropdown-item" href="${contextRoot}/cart/show"><i class="fas fa-shopping-cart"></i>
 						&#160;<span
 								class="badge">${userModel.cart.cartLines}</span> - &#8377;
 								${userModel.cart.grandTotal}
 						
 						</a> 
-						
+						</security:authorize>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="${contextRoot}/logout">Logout</a>
 					</div>
 					
 					</li>
-					
+					</security:authorize>
 					
 			</ul>
 		</div>
