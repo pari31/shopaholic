@@ -58,7 +58,7 @@ public class RegisterHandler {
   }
    
   // encode the password
-  user.setPassword(passwordEncoder.encode(user.getPassword()));
+  user.setPassword(passwordEncoder.encode(user.getPassword()));//using bycrypt to encrypt password
   // save the user
   userDAO.add(user);
   // save the billing address

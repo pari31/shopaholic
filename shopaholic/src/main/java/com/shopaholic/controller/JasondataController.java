@@ -18,7 +18,7 @@ public class JasondataController {
 	@Autowired
 	private ProductDAO productDAO;
 	
-	@RequestMapping("/admin/allproducts")
+	@RequestMapping("/admin/all/products")
 	@ResponseBody
 	public List<Product>getAllProductsList()
 	{
@@ -41,7 +41,7 @@ public class JasondataController {
 	}
 	
 	@RequestMapping("/mv/products")
-	@ResponseBody
+	@ResponseBody//json data for most viewed products list
 	public List<Product>getMostViewedProducts()
 	{
 		return productDAO.getProductsByParam("views",5);

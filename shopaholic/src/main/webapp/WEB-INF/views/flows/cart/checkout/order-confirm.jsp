@@ -11,11 +11,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Online Shopping Website Using Spring MVC and Hibernate">
-<meta name="author" content="Bhanoo Pratap Singh">
+<meta name="author" content="Paritosh Kumar">
 
 <link rel="icon" href="${images}/fevicon.png">
 
-<title>HiFiShopee - Membership</title>
+<title>Shopaholic - Membership</title>
 
 <script>
 
@@ -56,7 +56,7 @@ window.contextRoot = '${contextRoot}';
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
            <div class="navbar-header">
-               <a class="navbar-brand" href="${contextRoot}/home">HiFiShopee</a>
+               <a class="navbar-brand" href="${contextRoot}/home">Shopaholic</a>
            </div>
 		</div>
 	</nav>

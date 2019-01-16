@@ -93,7 +93,7 @@ public class ManagementController {
 	}
 	
 	
-	@RequestMapping(value = "/product", method=RequestMethod.POST)
+	@RequestMapping(value = "/products", method=RequestMethod.POST)
 	public String managePostProduct(@Valid @ModelAttribute("product") Product mProduct, 
 			BindingResult results, Model model, HttpServletRequest request) {
 		

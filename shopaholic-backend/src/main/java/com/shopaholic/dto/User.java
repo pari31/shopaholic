@@ -30,7 +30,7 @@ public class User implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@NotBlank(message = "Please enter first name!")
+	@NotBlank(message = "Please enter first name!")//using hibernate validator to validate form data
 	@Column(name = "first_name")
 	private String firstName;
 	@NotBlank(message = "Please enter last name!")

@@ -35,8 +35,8 @@ public class CategoryTest {
 		
 		category = new Category();
 		
-		category.setName("Television");
-		category.setDescription("Smart LED/OLED");
+		category.setName("Washing Machine");
+		category.setDescription("Semi Automatic/Fully Automatic Front Load/Fully Automatic Top Load");
 	
 		assertEquals("Successfully added a category inside the table!",true,categoryDAO.add(category));
 		

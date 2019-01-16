@@ -38,7 +38,7 @@
 
 
 <!-- FontAwesome 5 -->
-<link href="${css}/fontawesomeall.css" rel="stylesheet">
+<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet">
 
 
 <!-- Custom styles for this template -->
@@ -96,31 +96,30 @@
 		<!-- Footer -->
 
 		<%@include file="./shared/footer.jsp"%>
-	
-
-	<!-- Bootstrap core JavaScript -->
-	<script src="${js}/jquery.js"></script>
-	<script src="${js}/popper.min.js"></script>
-	<!-- DataTable Plugin -->
-	<script src="${js}/jquery.dataTables.js"></script>
-
-	<!-- DataTable Bootstarp script -->
-	<script src="${js}/dataTables.bootstrap4.js"></script>
-
-	<!-- Bootbox -->
-	<script src="${js}/bootbox.min.js"></script>
-
-	<!-- FontAwesome 5 script -->
-	<script src="${js}/fontawesomeall.js"></script>
-
-	<!-- DataTable Bootstrap Script -->
-	<script src="${js}/bootstrap.min.js"></script>
-	<script src="${js}/jquery.validate.js"></script>
-
-	<!-- Self coded javascript to link myapp.js -->
-	<script src="${js}/myapp.js"></script>
 
 
+		<!-- Bootstrap core JavaScript -->
+		<script src="${js}/jquery.js"></script>
+		<script src="${js}/popper.min.js"></script>
+		<!-- DataTable Plugin -->
+
+
+		<!-- DataTable Bootstarp script -->
+
+
+		<!-- Bootbox -->
+		<script src="${js}/bootbox.min.js"></script>
+
+		<!-- FontAwesome 5 script -->
+		<script src="${js}/fontawesomeall.js"></script>
+
+		<!-- DataTable Bootstrap Script -->
+		<script src="${js}/bootstrap.min.js"></script>
+		<script src="${js}/jquery.validate.js"></script>
+		<script src="${js}/jquery.dataTables.js"></script>
+		<script src="${js}/dataTables.bootstrap4.js"></script>
+		<!-- Self coded javascript to link myapp.js -->
+		<script src="${js}/myapp.js"></script>
 </body>
 </div>
 </html>

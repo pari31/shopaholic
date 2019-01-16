@@ -203,69 +203,22 @@
 			<div style="overflow: auto">
 
 				<!-- Product table for Admin -->
-				<table id="adminProductsTable"
+				<table id="productsTable"
 					class="table table-striped table-bordered">
 					<thead>
 						<tr>
 							<th>Id</th>
 							<th>&#160;</th>
 							<th>Name</th>
+							<th>Brand</th>
 							<th>Quantity</th>
 							<th>Unit Price</th>
-							<th>Status</th>
 							<th>Edit</th>
 						</tr>
 					</thead>
 
 					<tbody>
-						<tr>
-							<td>12</td>
-							<td><img class="adminDataTableImg"
-								src="${contextRoot}/resources/images/6EC403447C.jpg" alt=" Honor 9N"/>
-							</td>
-							<td>Honor 9N</td>
-							<td>5</td>
-							<td>&#8377;13999.0</td>
-							<td>
-								<!-- 	Toggle Switch for Active/De-active Products --> <lable
-									class="switch"> <input type="checkbox"
-									checked="checked" value="12" />
-								<div class="slider round"></div>
-								</lable>
-							</td>
-							<!-- Link to edit the product -->
-							<td><a href="${contextRoot}/manage/product"
-								class="btn btn-warning"> <span
-									class="glyphicon glyphicon-pencil"></span>
-							</a></td>
-
-						</tr>
-
-
-						<tr>
-							<td>12</td>
-							<td><img class="adminDataTableImg"
-								src="${contextRoot}/resources/images/6EC403447C.jpg" alt=" Honor 9N"/>
-							</td>
-							<td>Honor 9N</td>
-							<td>5</td>
-							<td>&#8377;13999.0</td>
-							<td>
-								<!-- 	Toggle Switch for Active/De-active Products --> <lable
-									class="switch"> <input type="checkbox"
-									checked="checked" value="12" />
-								<div class="slider round"></div>
-								</lable>
-							</td>
-							<!-- Link to edit the product -->
-							<td><a href="${contextRoot}/manage/product"
-								class="btn btn-warning"> <span
-									class="glyphicon glyphicon-pencil"></span>
-							</a></td>
-
-						</tr>
-
-					</tbody>
+											</tbody>
 
 
 					<tfoot>
@@ -273,9 +226,9 @@
 							<th>Id</th>
 							<th>&#160;</th>
 							<th>Name</th>
+							<th>Brand</th>
 							<th>Quantity</th>
 							<th>Unit Price</th>
-							<th>Status</th>
 							<th>Edit</th>
 						</tr>
 					</tfoot>

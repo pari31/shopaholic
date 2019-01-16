@@ -27,7 +27,7 @@
 <link href="${css}/myapp.css" rel="stylesheet">
 
 
-<title>HiFiShopee - FlowException</title>
+<title>Shopaholic - FlowException</title>
 
 </head>
 

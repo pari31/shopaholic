@@ -51,9 +51,9 @@
 						<td data-th="Subtotal" class="text-center">&#8377; ${cartLine.total} /-</td>
 						<td class="actions" data-th="">
 							<c:if test="${cartLine.available == true}">
-								<button type="button" name="refreshCart" class="btn btn-info btn-sm" value="${cartLine.id}"><span class="glyphicon glyphicon-refresh"></span></button>
+								<button type="button" name="refreshCart" class="btn btn-info btn-sm" value="${cartLine.id}"><span class="fas fa-sync"></span></button>
 							</c:if>												
-							<a href="${contextRoot}/cart/${cartLine.id}/remove" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></a>								
+							<a href="${contextRoot}/cart/${cartLine.id}/remove" class="btn btn-danger btn-sm"><span class="fas fa-trash-alt"></span></a>						
 						</td>
 					</tr>
 					</c:forEach>
